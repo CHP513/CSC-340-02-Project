@@ -32,10 +32,11 @@ public class LibraryManagementGUI extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         enterBook = new javax.swing.JTextField();
         resultTxt = new javax.swing.JTextField();
-        libLogin = new javax.swing.JRadioButton();
-        custLogin = new javax.swing.JRadioButton();
         clearButton = new javax.swing.JButton();
         enterButton = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        cusotmer_button = new javax.swing.JButton();
+        librarian_button = new javax.swing.JButton();
         exitButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -54,36 +55,48 @@ public class LibraryManagementGUI extends javax.swing.JFrame {
         resultTxt.setText("Result");
         resultTxt.setFocusable(false);
 
-        libLogin.setText("Librarian");
-
-        custLogin.setText("Customer");
-
         clearButton.setText("Clear");
 
         enterButton.setText("Enter");
+
+        jLabel2.setText("Select User type");
+
+        cusotmer_button.setText("Customer");
+        cusotmer_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cusotmer_buttonActionPerformed(evt);
+            }
+        });
+
+        librarian_button.setText("Librarian");
+        librarian_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                librarian_buttonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(enterBook, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(resultTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(clearButton)
-                            .addGap(18, 18, 18)
-                            .addComponent(enterButton))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(libLogin)
-                            .addGap(18, 18, 18)
-                            .addComponent(custLogin))))
-                .addGap(0, 134, Short.MAX_VALUE))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(enterBook, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(resultTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cusotmer_button)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(librarian_button)
+                .addGap(33, 33, 33))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(clearButton)
+                .addGap(18, 18, 18)
+                .addComponent(enterButton)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -92,12 +105,11 @@ public class LibraryManagementGUI extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(enterBook, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(resultTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(libLogin)
-                    .addComponent(custLogin))
-                .addGap(18, 18, 18)
+                    .addComponent(resultTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2)
+                    .addComponent(cusotmer_button)
+                    .addComponent(librarian_button))
+                .addGap(74, 74, 74)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(clearButton)
                     .addComponent(enterButton))
@@ -115,7 +127,7 @@ public class LibraryManagementGUI extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(658, Short.MAX_VALUE)
                 .addComponent(exitButton)
                 .addGap(18, 18, 18))
         );
@@ -124,7 +136,7 @@ public class LibraryManagementGUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
                 .addComponent(exitButton)
                 .addContainerGap())
         );
@@ -135,6 +147,22 @@ public class LibraryManagementGUI extends javax.swing.JFrame {
     private void enterBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterBookActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_enterBookActionPerformed
+
+    private void cusotmer_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cusotmer_buttonActionPerformed
+      
+        customerView customer = new customerView();
+        
+        customer.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        customer.setVisible(true);
+    }//GEN-LAST:event_cusotmer_buttonActionPerformed
+
+    private void librarian_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_librarian_buttonActionPerformed
+          
+        librarianView librarian = new librarianView();
+                librarian.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+
+        librarian.setVisible(true);
+    }//GEN-LAST:event_librarian_buttonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -174,13 +202,14 @@ public class LibraryManagementGUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton clearButton;
-    private javax.swing.JRadioButton custLogin;
+    private javax.swing.JButton cusotmer_button;
     private javax.swing.JTextField enterBook;
     private javax.swing.JButton enterButton;
     private javax.swing.JButton exitButton;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton libLogin;
+    private javax.swing.JButton librarian_button;
     private javax.swing.JTextField resultTxt;
     // End of variables declaration//GEN-END:variables
 }
