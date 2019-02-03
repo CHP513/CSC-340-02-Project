@@ -140,17 +140,22 @@ public class LibraryManagementGUI extends javax.swing.JFrame {
         frame.add(BorderLayout.CENTER, customer); 
                 customer.setPreferredSize(new Dimension(640, 480));
                 frame.pack();
-frame.setVisible(true);
+        frame.setVisible(true);
         
         customer.setVisible(true);
     }//GEN-LAST:event_cusotmer_buttonActionPerformed
 
     private void librarian_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_librarian_buttonActionPerformed
           
-        librarianLogin librarian = new librarianLogin();
-                librarian.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+       JFrame frame = new JFrame("Testing");
+      librarianLogin1 libLogin = new librarianLogin1();
+        frame.add(BorderLayout.CENTER, libLogin); 
+                libLogin.setPreferredSize(new Dimension(640, 480));
+                frame.pack();
+        frame.setVisible(true);
+        
+        libLogin.setVisible(true); 
 
-        librarian.setVisible(true);
     }//GEN-LAST:event_librarian_buttonActionPerformed
 
     private void exitProgramButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitProgramButtonActionPerformed

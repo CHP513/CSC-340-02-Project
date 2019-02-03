@@ -6,8 +6,11 @@
 
 package libManage;
 
+import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.io.File;
 import java.util.Scanner;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 
@@ -116,6 +119,7 @@ public class customerLogin1 extends javax.swing.JPanel {
         String filePath = "customers.txt";
 
         verifyLogin(username, password, filePath);
+        
 
     }//GEN-LAST:event_cust_login_buttonActionPerformed
 
@@ -125,10 +129,8 @@ public class customerLogin1 extends javax.swing.JPanel {
         boolean found = false;
         String tempUsername = "";
         String tempPassword = "";
+                 JFrame frame = new JFrame("");
 
-        customerView custView = new customerView();
-        custView.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        
           customerLogin1 custLogin = new customerLogin1();
 
 
@@ -145,14 +147,20 @@ public class customerLogin1 extends javax.swing.JPanel {
                 if (tempUsername.trim().equals(username)
                         && tempPassword.trim().equals(password)) {
                     found = true;
-                    JOptionPane.showMessageDialog(null, "Sucessful login");
-                                
-                    custLogin.setVisible(false);
                     
-                    custView.setVisible(true);
+                     
+                 frame = new JFrame("");
+        customerView1 customerView = new customerView1();
+        frame.add(BorderLayout.CENTER, customerView); 
+                customerView.setPreferredSize(new Dimension(640, 480));
+                frame.pack();
+        frame.setVisible(true);
         
-
+        customerView.setVisible(true);
+       
+        
                 }
+                
             }
             if (found == false) {
                 JOptionPane.showMessageDialog(null, "Unsucessful login");
@@ -162,6 +170,8 @@ public class customerLogin1 extends javax.swing.JPanel {
 
         }
     }
+    
+  
 
     private void custLoginExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_custLoginExitButtonActionPerformed
         System.exit(0);
