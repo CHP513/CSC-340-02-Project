@@ -16,6 +16,7 @@ public class LibraryManagementGUI extends javax.swing.JFrame {
      */
     public LibraryManagementGUI() {
         initComponents();
+        this.setTitle("Library Management System");
     }
 
     /**
@@ -27,39 +28,20 @@ public class LibraryManagementGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        enterBook = new javax.swing.JTextField();
-        resultTxt = new javax.swing.JTextField();
-        clearButton = new javax.swing.JButton();
-        enterButton = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        LibManageSys = new javax.swing.JPanel();
+        selectUserTypeLbl = new javax.swing.JLabel();
         cusotmer_button = new javax.swing.JButton();
         librarian_button = new javax.swing.JButton();
-        exitButton = new javax.swing.JButton();
+        exitProgramButton = new javax.swing.JButton();
+        searchDatabaseNoLogin = new javax.swing.JLabel();
+        searchDatabaseNoLoginTxtFld = new javax.swing.JTextField();
+        searchDatabaseNoLoginButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Enter Book"));
+        LibManageSys.setBorder(javax.swing.BorderFactory.createTitledBorder("Library Management System"));
 
-        jLabel1.setText("Enter Book");
-
-        enterBook.setText("Enter Book");
-        enterBook.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                enterBookActionPerformed(evt);
-            }
-        });
-
-        resultTxt.setText("Result");
-        resultTxt.setFocusable(false);
-
-        clearButton.setText("Clear");
-
-        enterButton.setText("Enter");
-
-        jLabel2.setText("Select User type");
+        selectUserTypeLbl.setText("Select User type");
 
         cusotmer_button.setText("Customer");
         cusotmer_button.addActionListener(new java.awt.event.ActionListener() {
@@ -75,82 +57,81 @@ public class LibraryManagementGUI extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(enterBook, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(resultTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cusotmer_button)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(librarian_button)
-                .addGap(33, 33, 33))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(clearButton)
-                .addGap(18, 18, 18)
-                .addComponent(enterButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        exitProgramButton.setText("Exit Program");
+        exitProgramButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitProgramButtonActionPerformed(evt);
+            }
+        });
+
+        searchDatabaseNoLogin.setText("Search database ");
+
+        searchDatabaseNoLoginTxtFld.setText("Search Database");
+
+        searchDatabaseNoLoginButton.setText("Search");
+
+        javax.swing.GroupLayout LibManageSysLayout = new javax.swing.GroupLayout(LibManageSys);
+        LibManageSys.setLayout(LibManageSysLayout);
+        LibManageSysLayout.setHorizontalGroup(
+            LibManageSysLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(LibManageSysLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(enterBook, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(resultTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
+                .addGroup(LibManageSysLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(LibManageSysLayout.createSequentialGroup()
+                        .addComponent(selectUserTypeLbl)
+                        .addGap(18, 18, 18)
+                        .addComponent(cusotmer_button)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(librarian_button))
+                    .addComponent(exitProgramButton)
+                    .addGroup(LibManageSysLayout.createSequentialGroup()
+                        .addComponent(searchDatabaseNoLogin)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(searchDatabaseNoLoginTxtFld, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(searchDatabaseNoLoginButton)))
+                .addContainerGap(74, Short.MAX_VALUE))
+        );
+        LibManageSysLayout.setVerticalGroup(
+            LibManageSysLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(LibManageSysLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(LibManageSysLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(selectUserTypeLbl)
                     .addComponent(cusotmer_button)
                     .addComponent(librarian_button))
-                .addGap(74, 74, 74)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(clearButton)
-                    .addComponent(enterButton))
-                .addContainerGap(85, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(LibManageSysLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(searchDatabaseNoLogin)
+                    .addComponent(searchDatabaseNoLoginTxtFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchDatabaseNoLoginButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 144, Short.MAX_VALUE)
+                .addComponent(exitProgramButton)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        exitButton.setText("Exit");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(658, Short.MAX_VALUE)
-                .addComponent(exitButton)
-                .addGap(18, 18, 18))
+            .addComponent(LibManageSys, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
-                .addComponent(exitButton)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(LibManageSys, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(63, 63, 63))
         );
+
+        LibManageSys.getAccessibleContext().setAccessibleName("\"LMS\"");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void enterBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterBookActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_enterBookActionPerformed
-
     private void cusotmer_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cusotmer_buttonActionPerformed
       
-        customerView customer = new customerView();
+        customerLogin customer = new customerLogin();
         
         customer.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         customer.setVisible(true);
@@ -158,16 +139,21 @@ public class LibraryManagementGUI extends javax.swing.JFrame {
 
     private void librarian_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_librarian_buttonActionPerformed
           
-        librarianView librarian = new librarianView();
+        librarianLogin librarian = new librarianLogin();
                 librarian.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
         librarian.setVisible(true);
     }//GEN-LAST:event_librarian_buttonActionPerformed
 
+    private void exitProgramButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitProgramButtonActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_exitProgramButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -200,16 +186,13 @@ public class LibraryManagementGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton clearButton;
+    private javax.swing.JPanel LibManageSys;
     private javax.swing.JButton cusotmer_button;
-    private javax.swing.JTextField enterBook;
-    private javax.swing.JButton enterButton;
-    private javax.swing.JButton exitButton;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton exitProgramButton;
     private javax.swing.JButton librarian_button;
-    private javax.swing.JTextField resultTxt;
+    private javax.swing.JLabel searchDatabaseNoLogin;
+    private javax.swing.JButton searchDatabaseNoLoginButton;
+    private javax.swing.JTextField searchDatabaseNoLoginTxtFld;
+    private javax.swing.JLabel selectUserTypeLbl;
     // End of variables declaration//GEN-END:variables
 }

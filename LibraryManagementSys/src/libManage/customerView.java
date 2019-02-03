@@ -5,10 +5,6 @@
  */
 package libManage;
 
-import java.io.File;
-import java.util.Scanner;
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author Frank Einstein
@@ -31,124 +27,119 @@ public class customerView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        customer_username_label = new javax.swing.JLabel();
-        customer_password_label = new javax.swing.JLabel();
-        customer_username_txtfield = new javax.swing.JTextField();
-        customer_password_txtfield = new javax.swing.JTextField();
-        cust_login_button = new javax.swing.JButton();
-        loginLabel = new javax.swing.JLabel();
+        exitProgramButton = new javax.swing.JButton();
+        custBookSearchLbl = new javax.swing.JLabel();
+        custBookSearchTxtField = new javax.swing.JTextField();
+        custViewLabel = new javax.swing.JLabel();
+        custShowCheckoutsLbl = new javax.swing.JLabel();
+        custShowCheckoutsButton = new javax.swing.JButton();
+        custSearchDatabaseButton = new javax.swing.JButton();
+        custViewExitButton = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jLabel1.setText("customer");
-
-        customer_username_label.setText("Username");
-
-        customer_password_label.setText("Password");
-
-        customer_username_txtfield.setText("Username");
-
-        customer_password_txtfield.setText("Password");
-
-        cust_login_button.setText("Login");
-        cust_login_button.addActionListener(new java.awt.event.ActionListener() {
+        exitProgramButton.setText("Exit Program");
+        exitProgramButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cust_login_buttonActionPerformed(evt);
+                exitProgramButtonActionPerformed(evt);
             }
         });
 
-        loginLabel.setText("Login");
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        custBookSearchLbl.setText("Search book database:");
+
+        custBookSearchTxtField.setText("Book search");
+        custBookSearchTxtField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                custBookSearchTxtFieldActionPerformed(evt);
+            }
+        });
+
+        custViewLabel.setText("Customer View");
+
+        custShowCheckoutsLbl.setText("Show checked out books:");
+
+        custShowCheckoutsButton.setText("Show my checked out books");
+
+        custSearchDatabaseButton.setText("Search Database");
+        custSearchDatabaseButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                custSearchDatabaseButtonActionPerformed(evt);
+            }
+        });
+
+        custViewExitButton.setText("Exit Program");
+        custViewExitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                custViewExitButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(customer_username_label)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(customer_username_txtfield, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(162, 162, 162)
+                        .addComponent(custViewLabel))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(customer_password_label)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(customer_password_txtfield)))
-                .addGap(42, 42, 42)
-                .addComponent(loginLabel)
-                .addContainerGap(192, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(cust_login_button)
+                        .addGap(24, 24, 24)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(custShowCheckoutsLbl)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(custShowCheckoutsButton))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(custBookSearchLbl)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(custBookSearchTxtField, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(custSearchDatabaseButton)))))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(custViewExitButton)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(5, 5, 5)
+                .addComponent(custViewLabel)
+                .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(loginLabel))
-                .addGap(27, 27, 27)
+                    .addComponent(custBookSearchLbl)
+                    .addComponent(custBookSearchTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(custSearchDatabaseButton))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(customer_username_label)
-                    .addComponent(customer_username_txtfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(customer_password_label)
-                    .addComponent(customer_password_txtfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 163, Short.MAX_VALUE)
-                .addComponent(cust_login_button)
+                    .addComponent(custShowCheckoutsLbl)
+                    .addComponent(custShowCheckoutsButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 147, Short.MAX_VALUE)
+                .addComponent(custViewExitButton)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cust_login_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cust_login_buttonActionPerformed
-        String username = customer_username_txtfield.getText();
-        String password = customer_password_txtfield.getText();
-         String filePath = "customers.txt";
-        
-         verifyLogin(username, password, filePath);
+    private void custBookSearchTxtFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_custBookSearchTxtFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_custBookSearchTxtFieldActionPerformed
 
-       
-    }//GEN-LAST:event_cust_login_buttonActionPerformed
+    private void custSearchDatabaseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_custSearchDatabaseButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_custSearchDatabaseButtonActionPerformed
 
- public static void verifyLogin(String username, 
-         String password, String filePath) {
-            boolean found = false;
-        String tempUsername = "";
-        String tempPassword = "";
-        
-        try{
-        Scanner reader = new Scanner(System.in);
-        
-        reader = new Scanner(new File(filePath));
-        reader.useDelimiter("[,\n]");
-        
-        while(reader.hasNext() && !found) {
-            tempUsername = reader.next();
-            tempPassword = reader.next();
-            
-            
-            if(tempUsername.trim().equals(username) && 
-                    tempPassword.trim().equals(password)) {
-                found = true;
-                JOptionPane.showMessageDialog(null, "Sucessful login");
-            }
-        }
-              if(found == false){
-                JOptionPane.showMessageDialog(null, "Unsucessful login");
-        }
-        reader.close();
-        }
-        catch(Exception e) {
+    private void exitProgramButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitProgramButtonActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_exitProgramButtonActionPerformed
 
-        }
-    }
+    private void custViewExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_custViewExitButtonActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_custViewExitButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -185,12 +176,13 @@ public class customerView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton cust_login_button;
-    private javax.swing.JLabel customer_password_label;
-    private javax.swing.JTextField customer_password_txtfield;
-    private javax.swing.JLabel customer_username_label;
-    private javax.swing.JTextField customer_username_txtfield;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel loginLabel;
+    private javax.swing.JLabel custBookSearchLbl;
+    private javax.swing.JTextField custBookSearchTxtField;
+    private javax.swing.JButton custSearchDatabaseButton;
+    private javax.swing.JButton custShowCheckoutsButton;
+    private javax.swing.JLabel custShowCheckoutsLbl;
+    private javax.swing.JButton custViewExitButton;
+    private javax.swing.JLabel custViewLabel;
+    private javax.swing.JButton exitProgramButton;
     // End of variables declaration//GEN-END:variables
 }
