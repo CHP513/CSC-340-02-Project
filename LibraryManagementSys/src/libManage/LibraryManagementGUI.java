@@ -5,6 +5,10 @@
  */
 package libManage;
 
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import javax.swing.JFrame;
+
 /**
  *
  * @author DELL6420
@@ -130,10 +134,14 @@ public class LibraryManagementGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cusotmer_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cusotmer_buttonActionPerformed
-      
-        customerLogin customer = new customerLogin();
+
+         JFrame frame = new JFrame("Testing");
+        customerLogin1 customer = new customerLogin1();
+        frame.add(BorderLayout.CENTER, customer); 
+                customer.setPreferredSize(new Dimension(640, 480));
+                frame.pack();
+frame.setVisible(true);
         
-        customer.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         customer.setVisible(true);
     }//GEN-LAST:event_cusotmer_buttonActionPerformed
 

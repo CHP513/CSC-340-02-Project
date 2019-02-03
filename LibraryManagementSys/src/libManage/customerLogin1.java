@@ -129,8 +129,7 @@ public class customerLogin1 extends javax.swing.JPanel {
         customerView custView = new customerView();
         custView.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         
-          customerLogin custLogin = new customerLogin();
-        custLogin.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+          customerLogin1 custLogin = new customerLogin1();
 
 
         try {
@@ -149,7 +148,6 @@ public class customerLogin1 extends javax.swing.JPanel {
                     JOptionPane.showMessageDialog(null, "Sucessful login");
                                 
                     custLogin.setVisible(false);
-                    custLogin.dispose();
                     
                     custView.setVisible(true);
         
