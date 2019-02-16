@@ -63,13 +63,15 @@
                       <Component id="exitProgramButton" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="searchDatabaseNoLogin" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="searchDatabaseNoLoginTxtFld" min="-2" pref="146" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="156" max="-2" attributes="0"/>
                           <Component id="searchDatabaseNoLoginButton" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="searchVolumeNoLoginTxtFld" alignment="0" max="32767" attributes="0"/>
+                          <Component id="searchAuthorNoLoginTxtFld" alignment="0" pref="146" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace pref="74" max="32767" attributes="0"/>
+                  <EmptySpace pref="66" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -85,10 +87,13 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="searchDatabaseNoLogin" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="searchDatabaseNoLoginTxtFld" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="searchDatabaseNoLoginButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="144" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="searchAuthorNoLoginTxtFld" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="searchVolumeNoLoginTxtFld" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="94" max="32767" attributes="0"/>
                   <Component id="exitProgramButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -130,15 +135,29 @@
             <Property name="text" type="java.lang.String" value="Search database "/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="searchDatabaseNoLoginTxtFld">
+        <Component class="javax.swing.JTextField" name="searchAuthorNoLoginTxtFld">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Search Database"/>
+            <Property name="text" type="java.lang.String" value="Enter Author"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="searchAuthorNoLoginTxtFldActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="searchDatabaseNoLoginButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Search"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="searchDatabaseNoLoginButtonActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="searchVolumeNoLoginTxtFld">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Enter Volume"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="searchVolumeNoLoginTxtFldActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

@@ -43,6 +43,11 @@ public class customerLogin1 extends javax.swing.JPanel {
         customer_password_label = new javax.swing.JLabel();
 
         customer_username_txtfield.setText("Username");
+        customer_username_txtfield.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                customer_username_txtfieldActionPerformed(evt);
+            }
+        });
 
         customer_password_txtfield.setText("Password");
 
@@ -176,6 +181,10 @@ public class customerLogin1 extends javax.swing.JPanel {
     private void custLoginExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_custLoginExitButtonActionPerformed
         System.exit(0);
     }//GEN-LAST:event_custLoginExitButtonActionPerformed
+
+    private void customer_username_txtfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customer_username_txtfieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_customer_username_txtfieldActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

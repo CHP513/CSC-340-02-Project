@@ -7,6 +7,16 @@ package libManage;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.ProtocolException;
+import java.net.URL;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.net.ssl.HttpsURLConnection;
 import javax.swing.JFrame;
 
 /**
@@ -38,8 +48,9 @@ public class LibraryManagementGUI extends javax.swing.JFrame {
         librarian_button = new javax.swing.JButton();
         exitProgramButton = new javax.swing.JButton();
         searchDatabaseNoLogin = new javax.swing.JLabel();
-        searchDatabaseNoLoginTxtFld = new javax.swing.JTextField();
+        searchAuthorNoLoginTxtFld = new javax.swing.JTextField();
         searchDatabaseNoLoginButton = new javax.swing.JButton();
+        searchVolumeNoLoginTxtFld = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -70,9 +81,26 @@ public class LibraryManagementGUI extends javax.swing.JFrame {
 
         searchDatabaseNoLogin.setText("Search database ");
 
-        searchDatabaseNoLoginTxtFld.setText("Search Database");
+        searchAuthorNoLoginTxtFld.setText("Enter Author");
+        searchAuthorNoLoginTxtFld.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchAuthorNoLoginTxtFldActionPerformed(evt);
+            }
+        });
 
         searchDatabaseNoLoginButton.setText("Search");
+        searchDatabaseNoLoginButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchDatabaseNoLoginButtonActionPerformed(evt);
+            }
+        });
+
+        searchVolumeNoLoginTxtFld.setText("Enter Volume");
+        searchVolumeNoLoginTxtFld.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchVolumeNoLoginTxtFldActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout LibManageSysLayout = new javax.swing.GroupLayout(LibManageSys);
         LibManageSys.setLayout(LibManageSysLayout);
@@ -90,11 +118,12 @@ public class LibraryManagementGUI extends javax.swing.JFrame {
                     .addComponent(exitProgramButton)
                     .addGroup(LibManageSysLayout.createSequentialGroup()
                         .addComponent(searchDatabaseNoLogin)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(searchDatabaseNoLoginTxtFld, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(searchDatabaseNoLoginButton)))
-                .addContainerGap(74, Short.MAX_VALUE))
+                        .addGap(156, 156, 156)
+                        .addComponent(searchDatabaseNoLoginButton))
+                    .addGroup(LibManageSysLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(searchVolumeNoLoginTxtFld, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(searchAuthorNoLoginTxtFld, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
         LibManageSysLayout.setVerticalGroup(
             LibManageSysLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -107,9 +136,12 @@ public class LibraryManagementGUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(LibManageSysLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(searchDatabaseNoLogin)
-                    .addComponent(searchDatabaseNoLoginTxtFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(searchDatabaseNoLoginButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 144, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(searchAuthorNoLoginTxtFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(searchVolumeNoLoginTxtFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
                 .addComponent(exitProgramButton)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -135,38 +167,109 @@ public class LibraryManagementGUI extends javax.swing.JFrame {
 
     private void cusotmer_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cusotmer_buttonActionPerformed
 
-         JFrame frame = new JFrame("Testing");
+        JFrame frame = new JFrame("Testing");
         customerLogin1 customer = new customerLogin1();
-        frame.add(BorderLayout.CENTER, customer); 
-                customer.setPreferredSize(new Dimension(640, 480));
-                frame.pack();
+        frame.add(BorderLayout.CENTER, customer);
+        customer.setPreferredSize(new Dimension(640, 480));
+        frame.pack();
         frame.setVisible(true);
-        
+
         customer.setVisible(true);
     }//GEN-LAST:event_cusotmer_buttonActionPerformed
 
     private void librarian_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_librarian_buttonActionPerformed
-          
-       JFrame frame = new JFrame("Testing");
-      librarianLogin1 libLogin = new librarianLogin1();
-        frame.add(BorderLayout.CENTER, libLogin); 
-                libLogin.setPreferredSize(new Dimension(640, 480));
-                frame.pack();
+
+        JFrame frame = new JFrame("Testing");
+        librarianLogin1 libLogin = new librarianLogin1();
+        frame.add(BorderLayout.CENTER, libLogin);
+        libLogin.setPreferredSize(new Dimension(640, 480));
+        frame.pack();
         frame.setVisible(true);
-        
-        libLogin.setVisible(true); 
+
+        libLogin.setVisible(true);
 
     }//GEN-LAST:event_librarian_buttonActionPerformed
+    private void getRequest(String Author, String Volume) throws ProtocolException, IOException {
 
+        String responseString = "";
+
+        URL url = new URL("https://www.googleapis.com/books/v1/volumes?q="+ Volume + "+inauthor:" + Author + "&AIzaSyD2l4xicCXG_xS6iszQodS9O2u5e18s3Ck");
+        //connecting to url
+        HttpURLConnection c = (HttpURLConnection) url.openConnection();
+
+        c.setRequestMethod("GET");
+
+        try (
+                BufferedReader in = new BufferedReader //stream to resource
+                (new InputStreamReader(c.getInputStream()))) {
+            String str;
+            while ((str = in.readLine()) != null) {
+                //process the response and save it in some string 
+                responseString += str + "\n";
+            }
+            System.out.println(responseString);
+
+        }
+    }
+
+    private void postRequest(String website) throws ProtocolException, IOException {
+
+        URL obj = new URL(null, "https://www.example.com", 
+                new sun.net.www.protocol.https.Handler());
+        
+        HttpsURLConnection con = (HttpsURLConnection) obj.openConnection();
+
+        con.setRequestMethod("POST");
+
+        String urlParameters = "test";
+
+        con.setDoOutput(true);
+        DataOutputStream wr = new DataOutputStream(con.getOutputStream());
+        wr.writeBytes(urlParameters);
+        wr.flush();
+        wr.close();
+
+        BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+        String inputLine;
+        StringBuffer res = new StringBuffer();
+
+        while ((inputLine = in.readLine()) != null) {
+            res.append(inputLine);
+        }
+        in.close();
+    }
     private void exitProgramButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitProgramButtonActionPerformed
         System.exit(0);
     }//GEN-LAST:event_exitProgramButtonActionPerformed
+
+    private void searchAuthorNoLoginTxtFldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchAuthorNoLoginTxtFldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchAuthorNoLoginTxtFldActionPerformed
+
+    private void searchDatabaseNoLoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchDatabaseNoLoginButtonActionPerformed
+
+//        try {
+//            postRequest("example.com");
+//        } catch (IOException ex) {
+//            Logger.getLogger(LibraryManagementGUI.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+        try {
+            getRequest(searchAuthorNoLoginTxtFld.getText(),searchVolumeNoLoginTxtFld.getText());
+        } catch (IOException ex) {
+            Logger.getLogger(LibraryManagementGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_searchDatabaseNoLoginButtonActionPerformed
+
+    private void searchVolumeNoLoginTxtFldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchVolumeNoLoginTxtFldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchVolumeNoLoginTxtFldActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        
+
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -203,9 +306,10 @@ public class LibraryManagementGUI extends javax.swing.JFrame {
     private javax.swing.JButton cusotmer_button;
     private javax.swing.JButton exitProgramButton;
     private javax.swing.JButton librarian_button;
+    private javax.swing.JTextField searchAuthorNoLoginTxtFld;
     private javax.swing.JLabel searchDatabaseNoLogin;
     private javax.swing.JButton searchDatabaseNoLoginButton;
-    private javax.swing.JTextField searchDatabaseNoLoginTxtFld;
+    private javax.swing.JTextField searchVolumeNoLoginTxtFld;
     private javax.swing.JLabel selectUserTypeLbl;
     // End of variables declaration//GEN-END:variables
 }
