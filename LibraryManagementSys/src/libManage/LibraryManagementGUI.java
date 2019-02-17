@@ -7,10 +7,15 @@ package libManage;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.print.Book;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.ProtocolException;
 import java.net.URL;
@@ -18,6 +23,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.net.ssl.HttpsURLConnection;
 import javax.swing.JFrame;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.json.JSONTokener;
+import sun.rmi.runtime.Log;
 
 /**
  *
@@ -191,6 +201,7 @@ public class LibraryManagementGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_librarian_buttonActionPerformed
     private void getRequest(String Author, String Volume) throws ProtocolException, IOException {
 
+        
         String responseString = "";
 
         URL url = new URL("https://www.googleapis.com/books/v1/volumes?q="+ Volume + "+inauthor:" + Author + "&AIzaSyD2l4xicCXG_xS6iszQodS9O2u5e18s3Ck");
@@ -206,8 +217,40 @@ public class LibraryManagementGUI extends javax.swing.JFrame {
             while ((str = in.readLine()) != null) {
                 //process the response and save it in some string 
                 responseString += str + "\n";
+                System.out.println(responseString);
+                parseBook(responseString);
             }
-            System.out.println(responseString);
+
+        }
+    }
+    private void writeToText(String title, String author, String imageLink) throws FileNotFoundException, UnsupportedEncodingException, IOException {
+        try (FileWriter writer = new FileWriter("books.txt", true)) {
+            writer.write(author + "\n");
+            writer.write(title + "\n");
+            writer.write(imageLink + "\n");
+            writer.close();
+        }
+    }
+    private void parseBook(String responseString) throws FileNotFoundException, UnsupportedEncodingException, IOException {
+        try {
+            JSONObject root = new JSONObject(responseString);
+            JSONArray books = root.getJSONArray("items");
+            for (int i = 0; i < books.length(); i++) {
+                JSONObject book = books.getJSONObject(i);
+                JSONObject info = book.getJSONObject("volumeInfo");
+                String title = info.getString("title");
+                JSONArray authors = info.getJSONArray("authors");
+                String author = authors.getString(0);
+                JSONObject imageLinks = info.getJSONObject("imageLinks");
+                String imageLink = imageLinks.getString("smallThumbnail");
+                
+                writeToText(title, author, imageLink);
+                System.out.println("");
+                
+//                BookObject bookObject = new BookObject(author,title,imageLink);
+//                recordBooks.add(bookObject);
+            }
+        } catch (JSONException e) {
 
         }
     }
