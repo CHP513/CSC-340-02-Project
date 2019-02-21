@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package libManage;
 
 import java.awt.BorderLayout;
@@ -31,7 +26,6 @@ import sun.rmi.runtime.Log;
 
 /**
  *
- * @author DELL6420
  */
 public class LibraryManagementGUI extends javax.swing.JFrame {
 
@@ -178,9 +172,9 @@ public class LibraryManagementGUI extends javax.swing.JFrame {
     private void cusotmer_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cusotmer_buttonActionPerformed
 
         JFrame frame = new JFrame("Testing");
-        customerLogin1 customer = new customerLogin1();
+        CustomerLogin customer = new CustomerLogin();
         frame.add(BorderLayout.CENTER, customer);
-        customer.setPreferredSize(new Dimension(640, 480));
+        customer.setPreferredSize(new Dimension(3840, 2160));
         frame.pack();
         frame.setVisible(true);
 
@@ -190,9 +184,9 @@ public class LibraryManagementGUI extends javax.swing.JFrame {
     private void librarian_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_librarian_buttonActionPerformed
 
         JFrame frame = new JFrame("Testing");
-        librarianLogin1 libLogin = new librarianLogin1();
+        LibrarianLogin libLogin = new LibrarianLogin();
         frame.add(BorderLayout.CENTER, libLogin);
-        libLogin.setPreferredSize(new Dimension(640, 480));
+        libLogin.setPreferredSize(new Dimension(3840, 2160));
         frame.pack();
         frame.setVisible(true);
 
@@ -201,10 +195,9 @@ public class LibraryManagementGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_librarian_buttonActionPerformed
     private void getRequest(String Author, String Volume) throws ProtocolException, IOException {
 
-        
         String responseString = "";
 
-        URL url = new URL("https://www.googleapis.com/books/v1/volumes?q="+ Volume + "+inauthor:" + Author + "&AIzaSyD2l4xicCXG_xS6iszQodS9O2u5e18s3Ck");
+        URL url = new URL("https://www.googleapis.com/books/v1/volumes?q=" + Volume + "+inauthor:" + Author + "&AIzaSyD2l4xicCXG_xS6iszQodS9O2u5e18s3Ck");
         //connecting to url
         HttpURLConnection c = (HttpURLConnection) url.openConnection();
 
@@ -223,6 +216,7 @@ public class LibraryManagementGUI extends javax.swing.JFrame {
 
         }
     }
+
     private void writeToText(String title, String author, String imageLink) throws FileNotFoundException, UnsupportedEncodingException, IOException {
         try (FileWriter writer = new FileWriter("books.txt", true)) {
             writer.write(author + "\n");
@@ -231,6 +225,7 @@ public class LibraryManagementGUI extends javax.swing.JFrame {
             writer.close();
         }
     }
+
     private void parseBook(String responseString) throws FileNotFoundException, UnsupportedEncodingException, IOException {
         try {
             JSONObject root = new JSONObject(responseString);
@@ -243,10 +238,10 @@ public class LibraryManagementGUI extends javax.swing.JFrame {
                 String author = authors.getString(0);
                 JSONObject imageLinks = info.getJSONObject("imageLinks");
                 String imageLink = imageLinks.getString("smallThumbnail");
-                
+
                 writeToText(title, author, imageLink);
                 System.out.println("");
-                
+
 //                BookObject bookObject = new BookObject(author,title,imageLink);
 //                recordBooks.add(bookObject);
             }
@@ -257,9 +252,9 @@ public class LibraryManagementGUI extends javax.swing.JFrame {
 
     private void postRequest(String website) throws ProtocolException, IOException {
 
-        URL obj = new URL(null, "https://www.example.com", 
+        URL obj = new URL(null, "https://www.example.com",
                 new sun.net.www.protocol.https.Handler());
-        
+
         HttpsURLConnection con = (HttpsURLConnection) obj.openConnection();
 
         con.setRequestMethod("POST");
@@ -297,7 +292,7 @@ public class LibraryManagementGUI extends javax.swing.JFrame {
 //            Logger.getLogger(LibraryManagementGUI.class.getName()).log(Level.SEVERE, null, ex);
 //        }
         try {
-            getRequest(searchAuthorNoLoginTxtFld.getText(),searchVolumeNoLoginTxtFld.getText());
+            getRequest(searchAuthorNoLoginTxtFld.getText(), searchVolumeNoLoginTxtFld.getText());
         } catch (IOException ex) {
             Logger.getLogger(LibraryManagementGUI.class.getName()).log(Level.SEVERE, null, ex);
         }
